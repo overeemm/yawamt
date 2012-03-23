@@ -1,0 +1,8 @@
+﻿<Window x:Class="YAWAMT.SystemTrayClient.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="yawamt" Height="100" Width="100"  WindowStyle="None" HorizontalAlignment="Center" VerticalAlignment="Center" AllowsTransparency="True">
+	<Window.Resources>
+	</Window.Resources>
+    <Image Height="50" Name="imglogo" Stretch="Fill" Width="50" />
+</Window>

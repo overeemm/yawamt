@@ -1,0 +1,17 @@
+Yet Another Web App Monitoring Tool, 2009
+
+>> installing yawamt
+The install process is not really polished, but should work.
+
+1. Create the registry keys: 
+   execute the config.reg file (after examening the different values)
+   
+2. Create an empty SQL database (you can use the .exe in the Util folder for this.
+   Just call utility.exe --createdb
+   
+3. Configure the virtual directory for the website
+   When using IIS 6: create a wildcard mapping.
+   
+4. Install the windows service (using the batch files)
+
+5. Check everything and pray that it works :-)

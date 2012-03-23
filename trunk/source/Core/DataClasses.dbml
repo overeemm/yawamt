@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="DEVENTIT_MONITORING4" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=DEVENTIT_MONITORING4;Persist Security Info=True;User ID=sa" SettingsObjectName="YAWAMT.Properties.Settings" SettingsPropertyName="DEVENTIT_MONITORING4ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Downtimes" Member="Downtimes">
+    <Type Name="Downtime">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Begintijd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Eindtijd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Hard" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Url" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Url_Downtime" Member="Url1" ThisKey="Url" OtherKey="ID" Type="Url" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ServiceUptime" Member="ServiceUptimes">
+    <Type Name="ServiceUptime">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ShutdownTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Settings" Member="Settings">
+    <Type Name="Setting">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Naam" Type="System.String" DbType="NChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Periode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Retries" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RetriesPeriode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Setting_Url" Member="Urls" ThisKey="ID" OtherKey="Settings" Type="Url" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ServiceStatus" Member="ServiceStatus">
+    <Type Name="ServiceStatus">
+      <Column Name="VolgendePulse" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LaatstePulse" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Urls" Member="Urls">
+    <Type Name="Url">
+      <Column Name="Url" Member="Url1" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Naam" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Settings" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LaatstePulse" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CurrentPeriode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Url_Downtime" Member="Downtimes" ThisKey="ID" OtherKey="Url" Type="Downtime" />
+      <Association Name="Setting_Url" Member="Setting" ThisKey="Settings" OtherKey="ID" Type="Setting" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

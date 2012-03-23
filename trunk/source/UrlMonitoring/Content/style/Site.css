@@ -1,0 +1,102 @@
+﻿@import url("yui-reset-min.css");
+
+body { font-family: Helvetica; border: solid 1px #fff; }
+
+iframe { display:none; }
+
+div.url, div.urledit
+{
+	background-color: #ccc;
+	color: #000;
+	width:350px;
+	height:20px;
+	margin:10px;
+	padding:10px;
+} 
+div.url { display: inline-block; height: 50px; float: left; font-size: 25px; }
+div.urledit { height: 140px; }
+div.hard, div.soft, div.none { color: #fff; }
+div.url span { overflow: hidden; height: 30px; display:block; }
+
+div.urledit div.editform, div.newform
+{
+	background-color: #eee;
+	color: Black;
+	font-size:10pt;
+	border: solid 0px black;
+	height:95px;
+	margin:5px;
+	width:330px;
+	float:left;
+}
+
+div.newform 
+{
+	position:absolute;
+	bottom:80px;
+	border: solid 2px #555;
+	border-bottom: 0px;
+	margin-bottom:0px;
+	z-index:3;
+	left:20px;
+	float:none;
+}
+
+div.form table { width:100%; border: 0px; } 
+div.form table td { padding: 2px 5px; }
+div.form input, div.editform select { border: solid 0px black; font-size:10pt; width:150px; padding: 1px 3px; }
+div.form img { cursor: hand; cursor: pointer; }
+
+.left { text-align: left; }
+.right { text-align: right; }
+.hidden { display:none; }
+
+div.hard, .downtime-hard { background-color: red; }
+div.soft, .downtime-zacht { background-color: Orange; }
+div.none { background-color: green; }
+.service-start { background-color:Green;}
+.service-downtime { background-color: Black;}
+
+div.url a, div.url a:hover { text-decoration: none; float:right;}
+div.url img.stats { float:right; cursor:hand; cursor:pointer; margin-right:7px; }
+div.url p { margin-top: 5px; font-size:7pt; float:right; width:220px; text-align: right;}
+
+
+div span { font-weight: bold; float:left;}
+
+div.about 
+{
+	background-color: #eee;
+	color: Black;
+	width:100%;
+	border-top: solid 2px #555;
+	height: 80px;
+	position: absolute;
+	left: 0px;
+	bottom:0px;
+}
+
+div.about img { float: right; margin:5px; }
+div.about div#menu, div.about div#menu img { float: left; }
+div.about div#menu img { cursor:hand; cursor:pointer; }
+div.about div { font-weight:normal; float:left; margin: 5px; width:auto; }
+div.about div#lastupdate { margin-left: 0px; position: absolute; bottom:5px; left:225px; font-size:9pt; margin-top:0px; }
+div.about div#lastupdate em.date { margin:0px; }
+
+.sys-template { display: none; visibility: hidden; }
+
+div#stats { position: absolute; top: 20px; left: 20px; right: 20px; background-color: #444; }
+
+div#info { position: absolute; width:300px; height: 300px; bottom: 80px; right: 75px; 
+           background-color: #eee;
+			color: Black;
+			border: solid 2px #555;
+			border-bottom: 0px;
+			font-size: 12px;
+			display:none;
+} 
+div#info p { margin: 10px; }
+div#info li { padding-left: 20px; margin-bottom: 3px;}
+
+div.error { display:none; position: absolute; width:400px; height:200px; overflow:auto; border: solid 1px red; background-color: Black; color: White; top: 100px; left: 100px; font-size: 9pt;}
+span#error-indicator { display:none; position: absolute; bottom: 15px; left: 15px; color: Red; }
